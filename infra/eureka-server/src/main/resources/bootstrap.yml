@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: eureka-service-registry
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
+      failFast: false
+server.port: 8989

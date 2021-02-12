@@ -1,0 +1,9 @@
+version = '0.0.1'
+
+mainClassName = "com.epam.hw.netflix.EurekaServerApplication"
+
+dependencies {
+    compile libpacks.spring_common
+    compile libpacks.cloud_eureka_server
+    compile libpacks.cloud_config_client
+}

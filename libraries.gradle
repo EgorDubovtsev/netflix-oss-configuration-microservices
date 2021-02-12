@@ -1,0 +1,57 @@
+ext {
+    groovyVersion = '2.4.4'
+
+    libpacks = [
+            spring_common: [
+                    'org.springframework.boot:spring-boot-starter-web',
+                    'org.springframework.boot:spring-boot-starter-actuator'
+            ],
+
+            cloud_common: [
+                    'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',
+                    'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
+            ],
+
+            cloud_config_client: [
+                    'org.springframework.cloud:spring-cloud-starter-config'
+            ],
+            
+            cloud_eureka_server: [
+                    'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+            ],
+
+            cloud_config_server: [
+                    'org.springframework.cloud:spring-cloud-config-server'
+            ],
+
+            cloud_feign: [
+                    'org.springframework.cloud:spring-cloud-starter-openfeign'
+            ],
+
+            cloud_routing: [
+                    'org.springframework.cloud:spring-cloud-starter-netflix-zuul'
+            ],
+
+            spring: [
+                    'org.springframework.boot:spring-boot-starter-actuator'
+            ],
+
+            groovy : [
+                    "org.codehaus.groovy:groovy-all:${groovyVersion}"
+            ],
+
+            logstash : [
+                    'net.logstash.logback:logstash-logback-encoder:4.4'
+            ],
+
+            testing : [
+                    'org.springframework.boot:spring-boot-starter-test',
+                    'org.spockframework:spock-core:1.0-groovy-2.4',
+                    'org.spockframework:spock-spring:1.0-groovy-2.0'
+            ],
+
+            lombok : [
+                    'org.projectlombok:lombok:1.16.4'
+            ]
+    ]
+}

@@ -1,0 +1,57 @@
+buildscript {
+	ext {
+		dependencyManagementPluginVersion = '1.0.7.RELEASE'
+		springBootVersion = '2.1.4.RELEASE'
+		springCloudBomVersion = 'Greenwich.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath("io.spring.gradle:dependency-management-plugin:${dependencyManagementPluginVersion}")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+subprojects {
+	group = "com.epam.hw.netflix"
+	apply plugin: 'java'
+	apply plugin: 'groovy'
+	apply plugin: 'idea'
+	apply plugin: 'eclipse'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+	apply from: "${rootProject.projectDir}/libraries.gradle"
+
+	task wrapper(type: Wrapper) {
+		gradleVersion = '4.10.2'
+	}
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	compileJava.options.encoding = 'UTF-8'
+
+	configure(subprojects - project(':commons')) {
+		apply plugin: 'application'
+	}
+
+	repositories {
+		mavenCentral()
+		jcenter()
+	}
+
+	dependencies {
+		testCompile libpacks.testing
+	}
+
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudBomVersion}"
+		}
+	}
+
+	task sourceJar(type: Jar) {
+		from sourceSets.main.allJava
+	}
+}
