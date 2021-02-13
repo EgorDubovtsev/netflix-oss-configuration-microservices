@@ -4,5 +4,5 @@ spring:
   cloud:
     config:
       uri: http://${CONFIG_HOST:localhost}:${CONFIG_PORT:8888}
-      failFast: false
+      failFast: true
 server.port: 8989

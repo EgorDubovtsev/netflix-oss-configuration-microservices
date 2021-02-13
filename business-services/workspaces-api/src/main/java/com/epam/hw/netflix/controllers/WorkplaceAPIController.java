@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/workspaces")
 @Slf4j
-@FeignClient("workspaces")
 public class WorkplaceAPIController implements WorkspaceAPI {
 
     @Autowired
