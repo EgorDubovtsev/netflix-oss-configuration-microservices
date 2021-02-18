@@ -6,4 +6,5 @@ dependencies {
     compile libpacks.spring_common
     compile libpacks.cloud_eureka_server
     compile libpacks.cloud_config_client
+    compile libpacks.slk_common
 }

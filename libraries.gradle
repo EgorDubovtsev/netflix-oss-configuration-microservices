@@ -6,6 +6,12 @@ ext {
                     'org.springframework.boot:spring-boot-starter-web',
                     'org.springframework.boot:spring-boot-starter-actuator'
             ],
+            slk_common:[
+              'ch.qos.logback:logback-classic:1.2.3',
+              'net.logstash.logback:logstash-logback-encoder:6.6',
+              'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.7.RELEASE'
+
+            ],
 
             cloud_common: [
                     'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client',

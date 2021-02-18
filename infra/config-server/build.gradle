@@ -5,4 +5,5 @@ mainClassName = "com.epam.hw.netflix.ConfigServerApplication"
 dependencies {
     compile libpacks.cloud_config_server
     compile libpacks.spring_common
+    compile libpacks.slk_common
 }

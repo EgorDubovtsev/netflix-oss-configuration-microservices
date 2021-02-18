@@ -1,4 +1,4 @@
-rootProject.name = 'netflix-oss-homework'
+rootProject.name = 'netflix-oss-configuration'
 
 include 'infra:config-server'
 include 'infra:eureka-server'
