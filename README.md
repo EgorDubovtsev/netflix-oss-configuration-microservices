@@ -1,5 +1,7 @@
 ## Практическое задание по микросервисной архитектуре 
 ###Часть I. Netflix OSS
+*9092 стартует kafka
+compose file: https://github.com/EgorDubovtsev/elk-for-netflix-oss-configuration/tree/kafka-version
 
 1. Необходимо настроить **config-server** таким образом, чтобы все сервисы, использующие eureka для service-discovery могли подключиться к eureka по порту 8282.
 Для хранения конфигурации **config-server'а** предагается использовать GIT - заведите отдельный репозиторий.
