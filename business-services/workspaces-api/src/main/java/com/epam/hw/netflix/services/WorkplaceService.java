@@ -2,14 +2,13 @@ package com.epam.hw.netflix.services;
 
 import com.epam.hw.netflix.domain.Workspace;
 import com.epam.hw.netflix.exceptions.NoWorkspaceFoundException;
-import org.apache.commons.lang3.StringUtils;
+import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
-import static com.epam.hw.netflix.domain.OSFamily.LINUX;
-import static com.epam.hw.netflix.domain.OSFamily.OSX;
-import static com.epam.hw.netflix.domain.OSFamily.WINDOWS;
+import static com.epam.hw.netflix.domain.OSFamily.*;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.String.format;
 import static java.util.UUID.randomUUID;
@@ -36,8 +35,9 @@ public class WorkplaceService {
     );
 
     public Workspace findWorkspace(String id) {
+        System.out.println(id);
         return workspaces.stream()
-                .filter(w -> StringUtils.equals(w.getId(), id))
+                .filter(w -> StringUtils.equals(w.getId(),id))
                 .findFirst()
                 .orElseThrow(() -> new NoWorkspaceFoundException(format("No workspace found with id: %s", id)));
     }

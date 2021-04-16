@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: workspace-api
+  labels:
+    app: workspace-api
+spec:
+  containers:
+    - image: egor1212/workspace-api
+      name: workspace-api
+      ports:
+        - containerPort: 8080

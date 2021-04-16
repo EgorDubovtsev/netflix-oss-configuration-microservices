@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workspace-api
+spec:
+  selector:
+    matchLabels:
+      app: workspace-api
+  replicas: 2
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: workspace-api
+    spec:
+      containers:
+        - image: egor1212/workspace-api
+          imagePullPolicy: Always
+          name: workspace-api
+          ports:
+            - containerPort: 8080
