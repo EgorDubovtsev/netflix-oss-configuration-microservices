@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: employees-service
+spec:
+  selector:
+    app: employees-api
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081

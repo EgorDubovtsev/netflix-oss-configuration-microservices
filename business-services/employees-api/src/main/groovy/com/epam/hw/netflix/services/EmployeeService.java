@@ -2,7 +2,7 @@ package com.epam.hw.netflix.services;
 
 import com.epam.hw.netflix.domain.Employee;
 import com.epam.hw.netflix.exceptions.NoEmployeeFoundException;
-import org.apache.commons.lang3.StringUtils;
+import net.logstash.logback.encoder.org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

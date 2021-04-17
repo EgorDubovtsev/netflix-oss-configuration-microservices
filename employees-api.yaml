@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: employees-api
+  labels:
+    app: employees-api
+spec:
+  containers:
+    - image: egor1212/employees-api
+      name: employees-api
+      ports:
+        - containerPort: 8081
