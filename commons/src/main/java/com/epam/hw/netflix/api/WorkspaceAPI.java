@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-@FeignClient(name = "workspace-api",url = "http://10.101.145.21:8080")
+@FeignClient(name="load-balancer", url = "http://load-balancer:8080")
 public interface WorkspaceAPI {
 
     @RequestMapping(value = "/workspaces/{id}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employees-api
+spec:
+  selector:
+    matchLabels:
+      app: employees-api
+  replicas: 1
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: employees-api
+    spec:
+      containers:
+        - image: egor1212/employees-api
+          imagePullPolicy: Always
+          name: employees-api
+          ports:
+            - containerPort: 8081
