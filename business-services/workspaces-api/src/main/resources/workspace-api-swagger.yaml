@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Workspaces Api
+  description: API description.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:9090'
+    description: first instance
+  - url: 'http://localhost:9091'
+    description: second instance
+  - url: 'http://localhost:9094'
+    description: gateway
+
+paths:
+  /workspaces/{workspace-id}:
+    get:
+      summary: Returns a workspace.
+      description: Returns a workspace by id
+      parameters:
+        - name: workspace-id
+          in: path
+          description: workspace id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+  /workspaces-service/workspaces/{workspace-id}:
+    get:
+      summary: Returns a workspace through gateway.
+      description: Returns a workspace by id through gateway
+      parameters:
+        - name: workspace-id
+          in: path
+          description: workspace id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+components:
+  schemas:
+    Workspace:
+      type: object
+      properties:
+        id:
+          type: string
+        unit:
+          type: integer
+        seat:
+          type: integer
+        serialNumber:
+          type: string
+        osFamily:
+          $ref: '#/components/schemas/OSFamily'
+    OSFamily:
+      type: string
+      enum: [OSX,WINDOWS,LINUX]

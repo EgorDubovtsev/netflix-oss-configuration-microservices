@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: Employees api
+  description: API description.
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:9092'
+    description: single instance
+  - url: 'http://localhost:9094'
+    description: gateway
+paths:
+  /employees/{employee-id}:
+    get:
+      summary: Returns employee and workstation.
+      parameters:
+        - name: employee-id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeResponse'
+  /employees-service/employees/{employee-id}:
+    get:
+      summary: Returns employee and workstation through gateway.
+      parameters:
+        - name: employee-id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeResponse'
+components:
+  schemas:
+    EmployeeResponse:
+      properties:
+        id:
+          type: integer
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        workspace:
+          $ref: '../../../../workspaces-api/src/main\resources/workspace-api-swagger.yaml#/Workspace'
